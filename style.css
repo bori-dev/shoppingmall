@@ -7,7 +7,6 @@
 }
 
 footer {
-    height: 271px;
     background: rgb(44, 21, 21);
 }
 
@@ -79,5 +78,10 @@ footer {
 
     .third-line {
         display: block;
+        color: white;
+    }
+
+    .country {
+        display: none;
     }
 }
