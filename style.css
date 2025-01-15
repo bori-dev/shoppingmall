@@ -76,6 +76,12 @@ footer {
         border-bottom: 1px solid #392d23;
     }
 
+    .row {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
     .third-line {
         display: block;
         color: white;
