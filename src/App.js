@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import ProductAll from './page/ProductAll';
+import ProductAll from "./page/ProductAll";
 import Login from './page/Login';
-import ProductDetail from './page/ProductDetail';
 import Navbar from './component/Navbar';
 import PrivateRoute from './route/PrivateRoute';
 

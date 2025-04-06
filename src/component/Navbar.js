@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import '../App.css' 
 
@@ -11,6 +11,15 @@ const Navbar = () => {
 
   const goToLogin = () => {
     navigate("/login")
+  }
+
+  const search = (event) => {
+     if(event.key === "Enter"){
+       let keyword = event.target.value;
+       
+
+       navigate(`/?q=${keyword}`)
+     }
   }
   
   return (
@@ -36,7 +45,7 @@ const Navbar = () => {
 
         <div className="search-bar">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <input type="text" placeholder="검색" />
+          <input type="text" placeholder="검색" onKeyPress={(event) => search(event)}/>
         </div>
       </div>
     </div>
