@@ -9,13 +9,13 @@ const ProductAll = () => {
 
   const getProducts = async () => {
     let searchQuery = query.get('q') || "";
-    console.log(searchQuery)
   
     let url = `https://my-json-server.typicode.com/bori-dev/shoppingmall/products/?q=${searchQuery}`;
     let response = await fetch(url);
     let data = await response.json();
   
     setProductList(data);
+    console.log(data)
   }  
 
   useEffect(() => {
@@ -25,10 +25,10 @@ const ProductAll = () => {
   return (
     <div> 
       <Container> 
-        <Row>  
+        <Row className="row-style">  
           {productList.length > 0 && 
             productList.map((item) => (
-            <Col lg={3} key={item.id}> 
+            <Col className="col-style" lg={3} md={6} sm={12} key={item.id}> 
               <ProductCard item={item} />
             </Col>
           ))}

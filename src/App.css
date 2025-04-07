@@ -25,15 +25,24 @@ body {
   font-size: 17px;
 }
 
+.login-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.login-style {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 .nav-section {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
-}
-
-.login-style {
-  margin-left: 6px;
+  cursor: pointer;
 }
 
 /* 메뉴 리스트 영역 */
@@ -55,32 +64,197 @@ body {
 
 .menu-list li {
   font-size: 16px;
+  cursor: pointer;
 }
 
 /* 서치바 스타일 */
 .search-bar {
   position: absolute;
-  right: 30px;
+  right: 50px;
   display: flex;
   align-items: center;
   gap: 5px;
+  max-width: 150px; /* 최대 너비를 설정 */
+  width: 100%; /* 화면 크기에 맞게 크기 조정 */
 }
 
 .search-bar input {
-  background: transparent; 
-  border: none !important;  
+  background: transparent;
+  border: none !important;
   border-bottom: 1px solid #000 !important;
   padding: 5px;
   font-size: 14px;
-  outline: none !important; 
-  width: 120px !important;
+  outline: none !important;
+  width: 100%; /* 부모 요소에 맞춰 크기 조정 */
   border-radius: 0 !important;
 }
 
 .search-bar input:focus {
-  border-bottom: 2px solid #007bff !important; 
+  border-bottom: 2px solid #007bff !important;
 }
 
+.menu-button {
+  display: none; /* 기본적으로 햄버거 버튼 숨기기 */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 20; /* 사이드 메뉴보다 위에 위치하도록 */
+}
+
+/* 사이드 메뉴 스타일 */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* 처음에는 화면 밖에 위치 */
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  padding-top: 20px;
+  z-index: 10; /* 햄버거 버튼보다 낮은 z-index 설정 */
+}
+
+.side-menu.open {
+  left: 0; /* 사이드 메뉴가 열리면 화면에 보이도록 */
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  top: 60px;
+}
+
+.side-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.side-menu li:hover {
+  background-color: #f1f1f1;
+}
+
+/* 반응형 모바일 디자인 */
+@media (max-width: 768px) {
+  .side-menu {
+    position: fixed;
+    left: -250px; 
+    width: 250px;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    padding-top: 20px;
+  }
+
+  .side-menu.open {
+    left: 0; 
+  }
+
+  
+  .side-menu ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    top: 60px;
+   }
+
+  .menu-list {
+    display: none; 
+  }
+
+  .search-bar input {
+    width: 150px; 
+  }
+
+  .menu-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 20; 
+  }
+
+  .product-img {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    margin-bottom: 20px;
+  }
+
+  .product-img img {
+    max-width: 100%; 
+    height: auto;    
+  }
+
+  .row-style {
+    display: flex;
+    justify-content: center;
+  }
+
+  .col-style {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-bar {
+    position: relative;
+    right: 0; 
+    width: 100%;
+    padding: 0 10px; 
+  }
+
+  .search-bar input {
+    width: 100%; 
+    font-size: 16px; 
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .search-bar {
+    width: 100%; 
+  }
+
+  .search-bar input {
+    font-size: 16px; 
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    padding-top: 20px;
+  }
+
+  .side-menu.open {
+    left: 0; 
+  }
+
+  .menu-list {
+    display: none; 
+  }
+
+  .search-bar input {
+    width: 150px; 
+  }
+
+  .menu-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+  }
+
+}
 
 /*카드 스타일*/
 .card-style {
@@ -109,9 +283,103 @@ body {
 }
 
 /* 상세페이지 스타일 */
+
+.product-detail-container {
+  padding: 30px 0;
+  max-width: 800px;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
 .product-img {
   display: flex;
-  justify-content: flex-end;
-  max-height: 600px;
-  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
+
+.product-img img {
+  max-height: 500px; 
+  width: auto;
+  object-fit: contain; 
+  border-radius: 8px; 
+}
+
+/* 제품 정보 스타일 */
+.product-info {
+  padding: 20px;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 20px;
+  color: #2a167a;
+  margin-bottom: 20px;
+}
+
+.product-choice {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.size-dropdown {
+  margin-bottom: 20px;
+}
+
+.add-button {
+  width: 80%;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 767px) {
+  .product-detail-container {
+    padding: 15px;
+  }
+
+  .product-img {
+    margin-bottom: 20px;
+  }
+
+  .product-img img {
+    max-width: 100%;
+  }
+
+  .product-info {
+    padding: 15px;
+  }
+
+  .product-title {
+    font-size: 20px;
+  }
+
+  .product-price {
+    font-size: 18px;
+  }
+
+  .product-choice {
+    font-size: 14px;
+  }
+
+  .add-button {
+    font-size: 16px;
+  }
+}
+

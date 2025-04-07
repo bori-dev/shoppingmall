@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <Navbar/> 
+    <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} /> {/* Navbar에 로그인 상태 전달 */}
      <Routes>
      <Route path="/" element={<ProductAll />} />
      <Route path="/login" element={<Login setAuthenticate={setAuthenticate} />} />
